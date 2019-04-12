@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="container">
+    <div class="new-entry">
+        <h2>Login</h2>
+        <form method="POST" action="" class="form">
+            {{ form.hidden_tag() }}
+            {% for field in form %}
+                <div class="field">
+                    {% if field.errors %}
+                        {% for error in field.errors %}
+                            <div class="notification error">{{ error }}</div>
+                        {% endfor %}
+                    {% endif %}
+                    {{ field(placeholder=field.label.text) }}
+                </div>
+            {% endfor %}
+            <button class="button icon" type="submit" id="submit">Login</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

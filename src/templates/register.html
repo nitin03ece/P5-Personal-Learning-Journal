@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="container">
+    <div class="new-entry">
+        <h2>Register</h2>
+        <form method="POST" action="" class="form">
+            {{ form.hidden_tag() }}
+            {% for field in form %}
+                <div class="field">
+                    {{ field(placeholder=field.label.text) }}
+                </div>
+            {% endfor %}
+            <button class="button icon" type="submit" id="submit">Register</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

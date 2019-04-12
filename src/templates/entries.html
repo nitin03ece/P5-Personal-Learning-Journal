@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="container">
+    <div class="entry-list">
+        {% for post in posts %}
+            <article>
+                <h2><a href="{{ url_for('detail', slug=post.slug ) }}">{{ post.title }}</a></h2>
+                <time datetime="{{ post.created_at }}">{{ post.created_at.date() }}</time>
+                <h3><a href="{{ url_for('tag_list', tag=post.tag) }}" >{{ post.tag }}</a><h3>
+            </article>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
